@@ -1,0 +1,258 @@
+
+/* Clear default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Cabin', sans-serif;
+    background-color: whitesmoke;
+    min-width: 300px;
+}
+
+/* Position header to the top of the viewport at all times, set to full width of viewport,
+set z-index to have header/navbar sit above all elements in page*/
+header{
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #36538B;
+    color: white;
+    z-index: 99;
+}
+
+header img{
+    object-fit: cover;
+    max-height: 100px;
+    max-width: 300px;
+    min-height: 50px;
+}
+
+header a{
+    font-weight: bold;
+}
+
+.head-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Anchor class used to correct in page links to sections being covered by sticky header
+    ref: http://nicolasgallagher.com/jump-links-and-viewport-positioning/demo/ */
+.anchor{
+    border-top: 125px solid transparent;
+    margin-top: -125px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+/* Set hero image to width of viewport
+    ref: https://www.w3schools.com/howto/howto_css_hero_image.asp  */
+.hero-image{
+    background-image: url("https://previews.dropbox.com/p/thumb/AAcrXWDnqtPXTgM1ZCxLvgSYi4f5wjr3TzdTmLdvcDLRl8bw6efBJ1OBHtAzKic6WJ2BD_c6d18mIbjeKOM4iQELBk_3HWW4mJM8616w-PnKBDCv4Bw0kaW_ZYhN428AIsxEsYWr5h2UA758tlVqXTbMSOzj5c2OyfkSB-_0PfJgSn0sT5-VMb2HlfULqC8TAHWFUzASP_SEr5biMzlhvpLr0DZRpX2uIAqL3LDGCrwx43rLSuwWaaL6nSdC3uv5OHzmTGZaYYu1DYekHeE5OTtuQWEQWNju8jSpAYLGblMpWl1wOBd-Fv4iMxGdM3Oe4ISl6cErno7Gww7P6th-fYYog3wblKcC27_bMdqCLgOR0tLt8AoMLTgMmDi3xr9_mFKCfUKm4tuqx7ZvLD4Wvq8b/p.png?fv_content=true&size_mode=5");
+    background-color: #34C1BB; /* Used if the image is unavailable */
+    height: 700px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    width: 100%;
+}
+.hero-text{
+    color: white;
+    padding-top: 25px;
+    text-align: center;
+    font-size: 20pt;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%; 
+}
+
+#product-description{
+    padding: 30px 40px;
+    text-align: center;
+}
+
+#product-description h1{
+    padding-bottom: 30px;
+    text-align: center;
+    align-content: center;
+}
+
+#features{
+    padding: 30px;
+}
+
+#features h1{
+    padding-bottom: 30px;
+    text-align: center;
+    align-content: center;
+}
+
+#features li{
+    list-style: none;
+    padding: 10px;
+}
+
+/* Resposive iframe design
+ref: https://davidwalsh.name/responsive-iframes */
+.iframe-container{
+    width: 50vw;
+    height: 28vw;
+    min-width: 315px;
+    min-height: 177px;
+    /* border: 10px solid salmon; */
+}
+.iframe-container iframe{
+    width: 100%;
+    height: 100%;
+}
+
+#pricing{
+    text-align: center;
+    padding: 20px;
+}
+
+.price-container{
+    margin: 20px auto;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    
+}
+.price-level{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px black solid;
+    border-radius: 2px;
+    text-align: center;
+    height: 200px;
+    padding-bottom: 5px;
+}
+.price-level div{
+    padding: 0 5px 5px;
+}
+.price-header{
+    background-color: lightblue;
+    border-radius: 2px 2px 0 0;
+    padding: 10px;
+}
+.price-select{
+    width: 35%;
+    height: 15%;
+    align-self: center;
+    background-color: #34C1BB;
+    border: 1px solid black;
+    cursor: pointer;
+}
+#contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+    padding: 30px;
+    width: 50%;
+}
+#contact h1{
+    padding-bottom: 30px;
+}
+form{
+    padding-top: 30px;
+}
+#submit{
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: #636870;
+    color: white;
+    min-height: 5vh;
+    width: 100%;
+}
+
+/* Format footer, anchored to bottom right corner of the screen */
+.footer{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+}
+.footer-nav a{
+    text-decoration: none;
+    color: lightblue;
+    padding: 10px 0 20px 10px; 
+}
+
+@media screen and (max-width: 760px){
+    .price-header{
+        font-size: 145%;
+    }
+}
+
+@media screen and (max-width: 745px){
+    .price-header{
+        font-size: 135%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .price-container{
+        grid-template-columns: 1fr;
+        max-width: 250px;
+    }
+    .hero-image{
+        background-size: contain;
+    }
+}
+
+@media screen and (max-width: 660px){
+    .head-container{
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 565px){
+    .head-container{
+        flex-direction: column;
+    }
+    .hero-image{
+        background-size: contain;
+        height: 300px;
+    }
+    .hero-text{
+        font-size: 14pt;
+    }
+}
+
+@media screen and (max-width: 365px){
+    #nav-bar{
+        font-size: 4vw;
+    }
+}

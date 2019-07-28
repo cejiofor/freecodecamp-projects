@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Andrew Carnegie Tribute</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body{
+        background-color: rgb(207, 50, 50);
+        color: white;
+    }
+    .tribute-header{
+        color: white;
+        text-align: center; 
+    }
+    .tribute-header h1{
+        margin: 0;
+        padding: 0;
+    }
+    .tribute-header h3{
+        margin-top:0;
+        padding-top:0;
+    }
+    #image{
+        display: block;
+        margin: 0 auto;
+        align-self: center;
+        max-height: 600px;
+        width: auto;
+        max-width: 70%;
+    }
+    #img-caption{
+        text-align: center;
+        font-size: 75%;
+        padding-top: 5px; 
+    }
+
+    .tribute-info{
+        text-align: center;
+    }
+    
+    .tribute-info h3{
+        font-weight: bold;
+        text-decoration: underline;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .tribute-info p{
+        font-weight: normal;
+        text-decoration: none;
+        margin-top: 0;
+    }
+    /* Timeline CSS*/
+    .timeline {
+        display: grid;
+        grid-template-columns: auto auto;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    /* Container around each timeline cell element right-hand side */
+    .time-card-right {
+        padding: 10px;
+        border-left: 5px white solid;
+        text-align: center; 
+    }
+     
+    /* Container around each timeline cell element, left-hand side */
+    .time-card-left {
+        padding: 10px;
+        border-right: 5px white solid;
+        text-align: center; 
+    }
+
+    /* empty cell for CSS grid alignment */
+    .empty-card-right {
+        border-left: 5px white solid; 
+    }
+     
+    /* empty cell for CSS grid alignment */
+    .empty-card-left {
+        border-right: 5px white solid;
+    }
+
+    /* Arrows pointing towards the timeline divider */
+    .time-card-left::before{
+        content: "";
+        height: 0;
+        border: medium solid white;
+        position: relative;
+        float: right; 
+        border-width: 15px 0 15px 15px;
+        border-color: transparent transparent transparent white;
+        left: 10px;
+        top: 10px;
+    }
+    .time-card-right::before{
+        content: "";
+        height: 0;
+        border: medium solid white;
+        position: relative;
+        float: left; 
+        border-width: 15px 15px 15px 0;
+        border-color: transparent white transparent transparent;
+        right: 10px;
+        top: 10px;
+    }
+    
+
+    /* Content in each timeline cards*/
+    .content {
+        padding: 20px 30px;
+        background-color: white;
+        color: black;
+        max-width: 90%;
+        border-radius: 6px;
+    }
+
+    /* Hide event details in span until mouse hovers over event */
+    .content span{
+        display: none;
+    }
+    .content:hover{
+        text-align: left; 
+    }
+    .content:hover span{
+        display: inline;
+    }
+    
+    .more-info{
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        padding: 30px 25px
+    }
+    .more-info a{
+        text-decoration: underline;
+        color: white
+    }
+    
+    /* Change the timeline interaction instructions on mobile devices */
+    .mobile{
+        display: none
+    }
+
+
+    /* Responsive timeline on screens less than 600px wide */
+    @media screen and (max-width: 600px) {
+
+        /* Create a single column timeline */
+        .timeline {
+            grid-template-columns: auto;
+        }
+        .time-card-right, .time-card-left {
+            padding-left: 10px;
+            border-left: 5px white solid;
+            border-right: none; 
+        }
+        .time-card-left::before{
+            float: left;
+            border-width: 15px 15px 15px 0;
+            border-color: transparent white transparent transparent;
+            left: -10px;
+        }
+
+        .empty-card-right, .empty-card-left {
+            margin: 0;
+            padding: 0;
+            border-right: none;
+        }
+        .mobile{
+            display: block;
+        }
+        .desktop{
+            display: none;
+        }
+        
+    }
+
+    /* Format footer, anchored to bottom right corner of the screen */
+    .footer{
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: flex-end;
+        color: white;
+        min-height: 5vh;
+    }
+    
+</style>
+
+<body id="main">
+    <div id="title" class="tribute-header"> 
+        <h1>Andrew Carnegie</h1>
+        <h3>Industrialist, Scholar, and Philanthropist</h3>
+    </div>
+    <div id="img-div">
+        <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Andrew_Carnegie%2C_three-quarter_length_portrait%2C_seated%2C_facing_slightly_left%2C_1913.jpg" 
+            alt="Portrait of Andrew Carnegie">
+        <div id="img-caption"> A portrait of Andrew Carnegie circa 1913 </div>
+    </div>
+    <div class="tribute-info">
+            <h3> An Interactive Timeline of Carnegie's Life</h3>
+            <p class="desktop">(Hover over the event card for details!)</p>
+            <p class="mobile">(Tap on the event card for details!)</p>
+    </div>
+
+    <div class="timeline">
+        <div class="time-card-left">
+            <div class="content">
+                <h4>1835: Carnegie born</h4>
+                <span>Andrew is born in Dunfermline, Scotland, to Margaret and Will Carnegie. Will Carnegie is a skilled weaver, and the Carnegies are one of many working-class families in Dunfermline. A younger son, Tom, is born in 1843.</span>
+            </div>
+        </div>
+        <div class="empty-card-right"></div>
+        <div class="empty-card-left"></div>
+        <div class="time-card-right">
+            <div class="content">
+                <h4>1848: Carnegies emigrate to US</h4>
+                <span>The Carnegies settle in Pittsburgh, and Andrew begins work as a bobbin boy in a textile mill, earning $1.20 per week. He later takes a job in a factory tending the steam engine and boiler, for $2.00 per week. He impresses his supervisor with his penmanship and is offered the chance to work as a clerk for the factory.</span>
+            </div>
+            
+        </div>
+        <div class="time-card-left">
+            <div class="content">
+                <h4>1864: Carnegie is drafted</h4>
+                <span>Carnegie is drafted into the Union Army. His options include paying the federal government $300 or finding a suitable replacement. Carnegie feels he has done his patriotic duty by supervising telegraph communications, and decides to pay a replacement $850 to serve in his place.</span>
+            </div>
+        </div>
+        <div class="empty-card-right"></div>
+        <div class="empty-card-left"></div>
+        <div class="time-card-right">
+            <div class="content">
+                <h4>1867: Carnegie founds Keystone Telegraph Company</h4>
+                <span>Carnegie establishes the Keystone Telegraph Company with several associates from the railroad. The company receives permission from the Pennsylvania Railroad to string telegraph wire across the railroad's poles, which stretch across the entire state. This is such a valuable asset that Keystone is able to merge almost immediately with the Pacific and Atlantic Telegraph Company, allowing Keystone's investors to triple their return.</span>
+            </div>
+        </div>
+        <div class="time-card-left">
+            <div class="content">
+                <h4>1875: Edgar Thomson Works opens</h4>
+                <span>Carnegie opens his first steel plant, the Edgar Thomson Works, in Braddock, Pennsylvania. The plant is named for the president of the Pennsylvania Railroad. Not surprisingly, Carnegie's first order is for 2000 steel rails for the Pennsylvania Railroad.</span>
+            </div>
+        </div>
+        <div class="empty-card-right"></div>
+        <div class="empty-card-left"></div>
+        <div class="time-card-right">
+            <div class="content">
+                <h4>1889: "Gospel of Wealth" published</h4>
+                <span>Carnegie publishes "The Gospel of Wealth" arguing that the wealthy have a moral obligation to serve as stewards for society. By the next year, Carnegie's annual take-home pay is $25 million.</span>
+            </div>
+        </div>
+        <div class="time-card-left">
+            <div class="content">
+                <h4>1892: The Homestead Strike occurs</h4>
+                <span>A union contract at Homestead expires; on vacation in Europe, Carnegie directs Frick to handle the situation. The workers have been organizing a strike, and when they are locked out, the strike proceeds. Frick has prepared for a stand-off by hiring Pinkerton agents. The New York Times writes, "It is evident there is no `bluffing' at Homestead. The fight there is to be to the death." The Pinkertons arrive and shoot it out with workers for about twelve hours. Although the Pinkertons surrender, they are forced to pass through a crowd of hundreds of workers, who beat them mercilessly, severely injuring twenty of them. The state militia is sent in to reclaim the mill and strikebreakers are hired to re-open it. This incident marks the end of Carnegie's image as a friend of the worker.</span>
+            </div>
+        </div>
+        <div class="empty-card-right"></div>
+        <div class="empty-card-left"></div>
+        <div class="time-card-right">
+            <div class="content">
+                <h4>1899: Carnegie organizes several of his steel companies into Carnegie Steel</h4>
+                <span>Tensions rise between Carnegie and Frick. Carnegie asks Frick to resign as chairman of the board. Questions remain about how much the Frick Company will charge Carnegie for coke.</span>
+            </div>
+        </div>
+        <div class="time-card-left">
+            <div class="content">
+                <h4>1900: Frick and Carnegie disagree over the price of coke</h4>
+                <span>Carnegie attempts to get Frick to sell him coke at a cut-rate price, and even to take over Frick's interest in Carnegie Steel. Frick sues for the market value of his coke, and the case is settled out-of-court.
+                <br>Carnegie Steel's annual profit is $40 million
+                <br>Carnegie Institute of Technology established
+                </span>
+            </div>
+        </div>
+        <div class="empty-card-right"></div>
+        <div class="empty-card-left"></div>
+        <div class="time-card-right">
+            <div class="content">
+                <h4>1901: Carnegie sells out to J.P. Morgan</h4>
+                <span>Carnegie allows J.P. Morgan to buy him out for $480 million, a move which allows Morgan to create US Steel, and makes Carnegie the richest man in the world.</span>
+            </div>
+        </div>
+        <div class="time-card-left">
+            <div class="content">
+                <h4>1902: Carnegie Institution established</h4>
+                <span>Carnegie founds the Carnegie Institution to provide research for American colleges and universities.</span>
+            </div>
+        </div>
+        <div class="empty-card-right"></div>
+        <div class="empty-card-left"></div>
+        <div class="time-card-right">
+            <div class="content">
+                <h4>1905: Carnegie Teachers' Pension Fund is established</h4>
+                <span>Carnegie endows the fund with $10,000,000.</span>
+            </div>
+        </div>
+        <div class="time-card-left">
+            <div class="content">
+                <h4>1910: Carnegie donates money to advance the cause of peace</h4>
+                <span>Carnegie establishes the Carnegie Endowment for International Peace, and builds the Central American Court of Justice in Costa Rica, which is destroyed by an earthquake later that year.</span>
+            </div>
+        </div>
+        <div class="empty-card-right"></div>
+        <div class="empty-card-left"></div>
+        <div class="time-card-right">
+            <div class="content">
+                <h4>1911: Carnegie Corporation is founded</h4>
+                <span>Carnegie establishes the Carnegie Corporation with his remaining money, about $125,000,000. He intends that the corporation will aid colleges, universities, technical schools, and scientific research. This is the last philanthropic trust Carnegie creates-- in all, he has given away 90% of his fortune.</span>
+            </div>
+        </div>
+        <div class="time-card-left">
+            <div class="content">
+                <h4>1919: Carnegie dies at Shadowbrook</h4>
+                <span>Carnegie's gravestone is made of stone taken from Skibo. It reads: Andrew Carnegie Born in Dunfermline, Scotland, 25 November 1835. Died in Lenox, Massachusetts, 11 August 1919.</span>
+            </div>
+        </div>
+        <div class="empty-card-right"></div>
+        <!-- <div class="time-card-left">
+            <div class="content">
+                <h4></h4>
+                <span></span>
+            </div>
+        </div>
+        <div class="empty-card-right"></div>
+        <div class="empty-card-left"></div>
+        <div class="time-card-right">
+            <div class="content">
+                <h4></h4>
+                <span></span>
+            </div>
+        </div>          -->
+    </div>
+    <div class="more-info">
+        <a id="tribute-link" href="https://en.wikipedia.org/wiki/Andrew_Carnegie" target="_blank">Click here</a> for more information about Carnegie! 
+    </div>
+    <footer class="footer">
+            <div>Made by Chris 💻</div>
+    </footer>
+</body>
+
+</html>

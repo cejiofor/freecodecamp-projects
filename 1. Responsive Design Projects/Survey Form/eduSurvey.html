@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Education Survey</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body{
+        /* Set the body as a flexbox for easy alignment */
+        background-color: #4C4890;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .survey-header{
+        /* Nested flex-box for survey header information */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        text-align: center;
+        padding: 20px 0px;
+        color: white;
+        max-width: 75%;
+    }
+
+    .survey-header h1{
+        margin: 0;
+        padding: 0;
+    }
+    
+    .grid-container{
+        /* Set the form as a CSS grid for two column design */
+        /* Grid Properties */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(9, auto);
+        grid-gap: 15px 15px;
+        
+        /* Color Scheme */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+        background-color: #64BA64;
+        border: 10px solid white;
+        border-radius: 15px;
+        color: white;
+
+        /* Margins and Spacing */
+        margin: 0 auto;
+        max-width: 900px;
+        padding: 20px;
+    }
+    
+    /* Labels for each question on the form */
+    .form-label{
+        text-align: end;
+        justify-self: end;
+        align-self: start;
+    }
+    .form-label p{
+        text-align: end;
+        align-self: start;
+        padding: 0;
+        margin: 0;
+    }
+    /* CSS properties for form responses */
+    .form-element{
+        justify-self: start;
+        align-self: start;
+    }
+
+    .email input{
+        min-width: 200px;
+        justify-self: start;
+    } 
+    .age input{
+        min-width: 100px;
+        justify-self: start;
+    } 
+
+    /* Last grid track in survey form made a flexbox for a centered submit button*/
+    .submitBtn{
+        grid-area: 9/1/10/3;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    /* Format footer, anchored to bottom right corner of the screen */
+    .footer{
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: flex-end;
+        color: white;
+        min-height: 5vh;
+    }
+
+    /* Format list items for checkboxes  */
+    .list-style-reset {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    button{
+        background-color: white;
+        border-radius: 5px;
+        border: none;
+    }
+
+    @media screen and (max-width: 1000px) {
+        .grid-container {
+            width: 80%;
+            grid-template-columns: auto auto;
+        }
+        select {
+            width: 90%;
+        }
+        textarea{
+            width: 90%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .grid-container {
+            display: flex;
+            flex-flow: column wrap;
+            width: 80%;
+            grid-template-columns: 1fr;
+        }
+        .form-label{
+            text-align: start;
+        }
+        .form-label p{
+            text-align: start;
+        }
+        .form-element{
+            justify-self: start;
+            align-self: initial;
+            align-content: space-evenly;
+            margin-bottom: 20px;
+            margin-left: 15px;
+
+        }
+    }
+
+    @media screen and (max-width: 390px){
+        .email input{
+            min-width: 190px;
+            font-size: 95%;
+            justify-self: start;
+        }
+    }
+</style>
+
+<body>
+    <div class="survey-header">
+        <h1 id='title'> Education Information Survey Form</h1>
+        <p id="description"> A survey collecting information on developers with a "non-tradtional" CS education</p>
+    </div>
+
+    <div class="survey-container">
+        <form id="survey-form" class="grid-container" action="">
+            <div class="form-label">
+                <label id="name-label" for="name">Name: </label>
+            </div>
+            <div class="form-element">
+                <input id="name" type="text" placeholder="Enter your name" required>
+            </div>
+            <div class="form-label">
+                <label id="email-label" for="email">E-mail: </label> 
+            </div>
+            <div class="form-element email">
+                <input  id="email" type="email" placeholder="Enter your e-mail address" required>
+            </div>
+            <div class="form-label">
+                <label  id="number-label" for="number">Age: </label>
+            </div>
+            <div class="form-element age">
+                <input  id="number" type="number" placeholder="Enter age" min="13" max="100" style="width: 70" >
+            </div>
+
+            <div class="form-label">
+                <p>Which option best describes your highest level of instiutional education?</p>
+            </div>
+            <div class="form-element">
+                <select id="dropdown">
+                    <option>---</option>
+                    <option>Some high school</option>
+                    <option>High School GED</optione>
+                    <option>Some College</option>
+                    <option>Associates (2 year)</option>
+                    <option>Bachelors (4 year)</option>
+                    <option>Master's</option>
+                    <option>Doctorate</option>
+                </select>
+            </div>
+
+            <div class="form-label">
+                <p>If you attended a post-secondary instiution, what did you study?</p>
+            </div>
+            <div class="form-element">
+                <select id="subject">
+                    <option>---</option>
+                    <option>Psychology</option>
+                    <option>Business</option>
+                    <option>Engineering</option>
+                    <option>Natural Science</option>
+                    <option>English</option>
+                    <option>Other/Not Listed</option>
+                </select>
+            </div> 
+
+            <div class="form-label">
+                <p> Are you planning to return to school in the next year?</p>
+            </div>
+            <div class="form-element">
+                <div><input type="radio" name="backToSchool" value="Yes" id="school-yes"> <label for="school-yes">Yes</label></div>
+                <div><input type="radio" name="backToSchool" value="No" id="school-no"> <label for="school-no">No</label></div>
+            </div>
+
+            <div class="form-label">
+                <p>What is/are your prefered learning medium(s)?</p>
+            </div>
+            <div class="form-element">
+                <ul class="list-style-reset">
+                    <li><label><input type="checkbox" name="prefer" value="lecture"> In-person Lectures</label></li>
+                    <li><label><input type="checkbox" name="prefer" value="video"> Video Lectures</label></li>
+                    <li><label><input type="checkbox" name="prefer" value="books"> Books/Textbooks</label></li>
+                    <li><label><input type="checkbox" name="prefer" value="projects"> Projects</label></li>
+                </ul>
+            </div>
+
+            <div class="form-label">
+                <p>Do you have any IT related professional certificates (CompTIA, Cisco, AWS, etc.)?</p>
+            </div>
+            <div class="form-element">
+                <textarea form="#contact" cols="40" rows="5" placeholder="Certifications, separated by commas."></textarea>
+            </div>
+
+            <div class="submitBtn">
+                <button id="submit" type="submit">Done</button>
+            </div>
+
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div>Made by Chris 💻</div>
+    </footer>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
